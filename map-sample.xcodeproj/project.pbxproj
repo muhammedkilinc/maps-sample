@@ -21,6 +21,7 @@
 		F51D3F81255D2F270083E6A4 /* PlaceListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F7B255D2F270083E6A4 /* PlaceListModels.swift */; };
 		F51D3F82255D2F270083E6A4 /* PlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F7C255D2F270083E6A4 /* PlaceListViewController.swift */; };
 		F51D3F83255D2F270083E6A4 /* PlaceListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F7D255D2F270083E6A4 /* PlaceListInteractor.swift */; };
+		F51D3F94255D32660083E6A4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F93255D32660083E6A4 /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F51D3F7B255D2F270083E6A4 /* PlaceListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListModels.swift; sourceTree = "<group>"; };
 		F51D3F7C255D2F270083E6A4 /* PlaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewController.swift; sourceTree = "<group>"; };
 		F51D3F7D255D2F270083E6A4 /* PlaceListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListInteractor.swift; sourceTree = "<group>"; };
+		F51D3F93255D32660083E6A4 /* Place.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; tabWidth = 2; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				F51D3F3F255D1A110083E6A4 /* AppDelegate.swift */,
 				F51D3F41255D1A110083E6A4 /* SceneDelegate.swift */,
 				F51D3F43255D1A110083E6A4 /* ViewController.swift */,
+				F51D3F92255D32560083E6A4 /* Model */,
 				F51D3F8E255D2F350083E6A4 /* Scenes */,
 				F51D3F45255D1A110083E6A4 /* Main.storyboard */,
 				F51D3F48255D1A130083E6A4 /* Assets.xcassets */,
@@ -160,6 +163,22 @@
 				F51D3F87255D2F2D0083E6A4 /* PlaceList */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F51D3F92255D32560083E6A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F51D3F9B255D32690083E6A4 /* Entity */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F51D3F9B255D32690083E6A4 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F51D3F93255D32660083E6A4 /* Place.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +320,7 @@
 				F51D3F83255D2F270083E6A4 /* PlaceListInteractor.swift in Sources */,
 				F51D3F42255D1A110083E6A4 /* SceneDelegate.swift in Sources */,
 				F51D3F7F255D2F270083E6A4 /* PlaceListWorker.swift in Sources */,
+				F51D3F94255D32660083E6A4 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

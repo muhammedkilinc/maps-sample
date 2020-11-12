@@ -14,7 +14,7 @@ import UIKit
 
 protocol PlaceListDisplayLogic: class
 {
-  func displaySomething(viewModel: PlaceList.Something.ViewModel)
+  func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
 }
 
 class PlaceListViewController: UITableViewController, PlaceListDisplayLogic
@@ -78,11 +78,11 @@ class PlaceListViewController: UITableViewController, PlaceListDisplayLogic
   
   func doSomething()
   {
-    let request = PlaceList.Something.Request()
-    interactor?.doSomething(request: request)
+    let request = PlaceList.PlaceModel.Request()
+    interactor?.fetchPlaces(request: request)
   }
   
-  func displaySomething(viewModel: PlaceList.Something.ViewModel)
+  func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
   {
     //nameTextField.text = viewModel.name
   }

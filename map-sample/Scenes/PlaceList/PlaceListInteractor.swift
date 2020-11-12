@@ -14,7 +14,7 @@ import UIKit
 
 protocol PlaceListBusinessLogic
 {
-  func doSomething(request: PlaceList.Something.Request)
+  func fetchPlaces(request: PlaceList.PlaceModel.Request)
 }
 
 protocol PlaceListDataStore
@@ -30,12 +30,12 @@ class PlaceListInteractor: PlaceListBusinessLogic, PlaceListDataStore
   
   // MARK: Do something
   
-  func doSomething(request: PlaceList.Something.Request)
+  func fetchPlaces(request: PlaceList.PlaceModel.Request)
   {
     worker = PlaceListWorker()
     worker?.doSomeWork()
     
-    let response = PlaceList.Something.Response()
-    presenter?.presentSomething(response: response)
+//    let response = PlaceList.Something.Response()
+//    presenter?.presentSomething(response: response)
   }
 }
