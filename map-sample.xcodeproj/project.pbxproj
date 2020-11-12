@@ -15,6 +15,12 @@
 		F51D3F4C255D1A130083E6A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51D3F4A255D1A130083E6A4 /* LaunchScreen.storyboard */; };
 		F51D3F57255D1A140083E6A4 /* map_sampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F56255D1A140083E6A4 /* map_sampleTests.swift */; };
 		F51D3F62255D1A140083E6A4 /* map_sampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F61255D1A140083E6A4 /* map_sampleUITests.swift */; };
+		F51D3F7E255D2F270083E6A4 /* PlaceListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F78255D2F270083E6A4 /* PlaceListPresenter.swift */; };
+		F51D3F7F255D2F270083E6A4 /* PlaceListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F79255D2F270083E6A4 /* PlaceListWorker.swift */; };
+		F51D3F80255D2F270083E6A4 /* PlaceListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F7A255D2F270083E6A4 /* PlaceListRouter.swift */; };
+		F51D3F81255D2F270083E6A4 /* PlaceListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F7B255D2F270083E6A4 /* PlaceListModels.swift */; };
+		F51D3F82255D2F270083E6A4 /* PlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F7C255D2F270083E6A4 /* PlaceListViewController.swift */; };
+		F51D3F83255D2F270083E6A4 /* PlaceListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F7D255D2F270083E6A4 /* PlaceListInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		F51D3F5D255D1A140083E6A4 /* map-sampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "map-sampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51D3F61255D1A140083E6A4 /* map_sampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = map_sampleUITests.swift; sourceTree = "<group>"; };
 		F51D3F63255D1A140083E6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F51D3F78255D2F270083E6A4 /* PlaceListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListPresenter.swift; sourceTree = "<group>"; };
+		F51D3F79255D2F270083E6A4 /* PlaceListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListWorker.swift; sourceTree = "<group>"; };
+		F51D3F7A255D2F270083E6A4 /* PlaceListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListRouter.swift; sourceTree = "<group>"; };
+		F51D3F7B255D2F270083E6A4 /* PlaceListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListModels.swift; sourceTree = "<group>"; };
+		F51D3F7C255D2F270083E6A4 /* PlaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewController.swift; sourceTree = "<group>"; };
+		F51D3F7D255D2F270083E6A4 /* PlaceListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +114,7 @@
 				F51D3F3F255D1A110083E6A4 /* AppDelegate.swift */,
 				F51D3F41255D1A110083E6A4 /* SceneDelegate.swift */,
 				F51D3F43255D1A110083E6A4 /* ViewController.swift */,
+				F51D3F8E255D2F350083E6A4 /* Scenes */,
 				F51D3F45255D1A110083E6A4 /* Main.storyboard */,
 				F51D3F48255D1A130083E6A4 /* Assets.xcassets */,
 				F51D3F4A255D1A130083E6A4 /* LaunchScreen.storyboard */,
@@ -126,6 +139,27 @@
 				F51D3F63255D1A140083E6A4 /* Info.plist */,
 			);
 			path = "map-sampleUITests";
+			sourceTree = "<group>";
+		};
+		F51D3F87255D2F2D0083E6A4 /* PlaceList */ = {
+			isa = PBXGroup;
+			children = (
+				F51D3F78255D2F270083E6A4 /* PlaceListPresenter.swift */,
+				F51D3F79255D2F270083E6A4 /* PlaceListWorker.swift */,
+				F51D3F7A255D2F270083E6A4 /* PlaceListRouter.swift */,
+				F51D3F7B255D2F270083E6A4 /* PlaceListModels.swift */,
+				F51D3F7C255D2F270083E6A4 /* PlaceListViewController.swift */,
+				F51D3F7D255D2F270083E6A4 /* PlaceListInteractor.swift */,
+			);
+			path = PlaceList;
+			sourceTree = "<group>";
+		};
+		F51D3F8E255D2F350083E6A4 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F51D3F87255D2F2D0083E6A4 /* PlaceList */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +292,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51D3F82255D2F270083E6A4 /* PlaceListViewController.swift in Sources */,
+				F51D3F80255D2F270083E6A4 /* PlaceListRouter.swift in Sources */,
+				F51D3F7E255D2F270083E6A4 /* PlaceListPresenter.swift in Sources */,
+				F51D3F81255D2F270083E6A4 /* PlaceListModels.swift in Sources */,
 				F51D3F44255D1A110083E6A4 /* ViewController.swift in Sources */,
 				F51D3F40255D1A110083E6A4 /* AppDelegate.swift in Sources */,
+				F51D3F83255D2F270083E6A4 /* PlaceListInteractor.swift in Sources */,
 				F51D3F42255D1A110083E6A4 /* SceneDelegate.swift in Sources */,
+				F51D3F7F255D2F270083E6A4 /* PlaceListWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
