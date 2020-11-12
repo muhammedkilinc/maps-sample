@@ -22,6 +22,9 @@
 		F51D3F82255D2F270083E6A4 /* PlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F7C255D2F270083E6A4 /* PlaceListViewController.swift */; };
 		F51D3F83255D2F270083E6A4 /* PlaceListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F7D255D2F270083E6A4 /* PlaceListInteractor.swift */; };
 		F51D3F94255D32660083E6A4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3F93255D32660083E6A4 /* Place.swift */; };
+		F51D3FA5255D36970083E6A4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3FA4255D36970083E6A4 /* APIClient.swift */; };
+		F51D3FAE255D36C30083E6A4 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3FAD255D36C30083E6A4 /* APIResponse.swift */; };
+		F51D3FB7255D377C0083E6A4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3FB6255D377C0083E6A4 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		F51D3F7C255D2F270083E6A4 /* PlaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewController.swift; sourceTree = "<group>"; };
 		F51D3F7D255D2F270083E6A4 /* PlaceListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListInteractor.swift; sourceTree = "<group>"; };
 		F51D3F93255D32660083E6A4 /* Place.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; tabWidth = 2; };
+		F51D3FA4255D36970083E6A4 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		F51D3FAD255D36C30083E6A4 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		F51D3FB6255D377C0083E6A4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,9 @@
 				F51D3F3F255D1A110083E6A4 /* AppDelegate.swift */,
 				F51D3F41255D1A110083E6A4 /* SceneDelegate.swift */,
 				F51D3F43255D1A110083E6A4 /* ViewController.swift */,
+				F51D3FC4255D3BB30083E6A4 /* Library */,
+				F51D3FB6255D377C0083E6A4 /* Result.swift */,
+				F51D3FA9255D36AB0083E6A4 /* API */,
 				F51D3F92255D32560083E6A4 /* Model */,
 				F51D3F8E255D2F350083E6A4 /* Scenes */,
 				F51D3F45255D1A110083E6A4 /* Main.storyboard */,
@@ -179,6 +188,30 @@
 				F51D3F93255D32660083E6A4 /* Place.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		F51D3FA9255D36AB0083E6A4 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F51D3FB2255D37730083E6A4 /* Network */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F51D3FB2255D37730083E6A4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F51D3FA4255D36970083E6A4 /* APIClient.swift */,
+				F51D3FAD255D36C30083E6A4 /* APIResponse.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F51D3FC4255D3BB30083E6A4 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,10 +345,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51D3F82255D2F270083E6A4 /* PlaceListViewController.swift in Sources */,
+				F51D3FB7255D377C0083E6A4 /* Result.swift in Sources */,
 				F51D3F80255D2F270083E6A4 /* PlaceListRouter.swift in Sources */,
 				F51D3F7E255D2F270083E6A4 /* PlaceListPresenter.swift in Sources */,
 				F51D3F81255D2F270083E6A4 /* PlaceListModels.swift in Sources */,
 				F51D3F44255D1A110083E6A4 /* ViewController.swift in Sources */,
+				F51D3FAE255D36C30083E6A4 /* APIResponse.swift in Sources */,
+				F51D3FA5255D36970083E6A4 /* APIClient.swift in Sources */,
 				F51D3F40255D1A110083E6A4 /* AppDelegate.swift in Sources */,
 				F51D3F83255D2F270083E6A4 /* PlaceListInteractor.swift in Sources */,
 				F51D3F42255D1A110083E6A4 /* SceneDelegate.swift in Sources */,
