@@ -32,7 +32,6 @@ class PlaceListInteractor: PlaceListBusinessLogic, PlaceListDataStore
   
   func fetchPlaces(request: PlaceList.PlaceModel.Request)
   {
-    worker = PlaceListWorker()
     worker?.doSomeWork()
     
 //    let response = PlaceList.Something.Response()

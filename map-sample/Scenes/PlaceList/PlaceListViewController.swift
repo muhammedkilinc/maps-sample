@@ -17,11 +17,13 @@ protocol PlaceListDisplayLogic: class
   func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
 }
 
-class PlaceListViewController: UITableViewController, PlaceListDisplayLogic
+class PlaceListViewController: UIViewController, PlaceListDisplayLogic
 {
   var interactor: PlaceListBusinessLogic?
   var router: (NSObjectProtocol & PlaceListRoutingLogic & PlaceListDataPassing)?
 
+  @IBOutlet weak var tableView: UITableView!
+  
   // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -41,12 +43,18 @@ class PlaceListViewController: UITableViewController, PlaceListDisplayLogic
   private func setup()
   {
     let viewController = self
+
+    let client = ApiClientImplementation(urlSession: URLSession(configuration: URLSessionConfiguration.default))
+    let gateway = ApiPlacesGatewayImplementation(apiClient: client)
+    let placesUseCase = DisplayPlacesListUseCaseImplementation(placesGateway: gateway)
+
     let interactor = PlaceListInteractor()
     let presenter = PlaceListPresenter()
     let router = PlaceListRouter()
     viewController.interactor = interactor
     viewController.router = router
     interactor.presenter = presenter
+    interactor.worker = PlaceListWorker(displayPlacesUseCase: placesUseCase)
     presenter.viewController = viewController
     router.viewController = viewController
     router.dataStore = interactor
@@ -56,12 +64,6 @@ class PlaceListViewController: UITableViewController, PlaceListDisplayLogic
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
   {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
-    }
   }
   
   // MARK: View lifecycle
