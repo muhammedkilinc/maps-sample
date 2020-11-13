@@ -7,9 +7,6 @@
 
 import Foundation
 
-protocol ApiRequest {
-  var urlRequest: URLRequest { get }
-}
 
 protocol ApiClient {
   func execute<T>(request: ApiRequest, completionHandler: @escaping (_ result: Result<ApiResponse<T>>) -> Void)

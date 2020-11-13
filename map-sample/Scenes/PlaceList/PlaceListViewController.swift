@@ -80,12 +80,13 @@ class PlaceListViewController: UIViewController, PlaceListDisplayLogic
   
   func doSomething()
   {
-    let request = PlaceList.PlaceModel.Request()
+    let request = PlaceList.PlaceModel.Request(query: "Coffee")
     interactor?.fetchPlaces(request: request)
   }
   
   func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
   {
+    print(viewModel.places)
     //nameTextField.text = viewModel.name
   }
 }

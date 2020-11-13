@@ -29,6 +29,11 @@
 		F51D3FD2255D3CBE0083E6A4 /* APIPlaceGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3FD1255D3CBE0083E6A4 /* APIPlaceGateway.swift */; };
 		F51D3FE0255D3D530083E6A4 /* SearchPlaceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3FDF255D3D530083E6A4 /* SearchPlaceRequest.swift */; };
 		F51D3FED255D3F040083E6A4 /* DisplayPlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3FEC255D3F040083E6A4 /* DisplayPlaceList.swift */; };
+		F51D4000255D65920083E6A4 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D3FFF255D65920083E6A4 /* APIRequest.swift */; };
+		F51D4005255D67B50083E6A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D4004255D67B50083E6A4 /* Constants.swift */; };
+		F51D4024255D6CA70083E6A4 /* Encoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D4023255D6CA60083E6A4 /* Encoders.swift */; };
+		F5DA3E5D255D7585007F3AA6 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA3E5C255D7585007F3AA6 /* EncodableExtension.swift */; };
+		F5DA3E65255D78DD007F3AA6 /* APIPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA3E64255D78DD007F3AA6 /* APIPlace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +82,11 @@
 		F51D3FD1255D3CBE0083E6A4 /* APIPlaceGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPlaceGateway.swift; sourceTree = "<group>"; };
 		F51D3FDF255D3D530083E6A4 /* SearchPlaceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceRequest.swift; sourceTree = "<group>"; };
 		F51D3FEC255D3F040083E6A4 /* DisplayPlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPlaceList.swift; sourceTree = "<group>"; };
+		F51D3FFF255D65920083E6A4 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		F51D4004255D67B50083E6A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F51D4023255D6CA60083E6A4 /* Encoders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoders.swift; sourceTree = "<group>"; };
+		F5DA3E5C255D7585007F3AA6 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
+		F5DA3E64255D78DD007F3AA6 /* APIPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPlace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +140,9 @@
 				F51D3F3F255D1A110083E6A4 /* AppDelegate.swift */,
 				F51D3F41255D1A110083E6A4 /* SceneDelegate.swift */,
 				F51D3F43255D1A110083E6A4 /* ViewController.swift */,
-				F51D3FC4255D3BB30083E6A4 /* Library */,
+				F51D4004255D67B50083E6A4 /* Constants.swift */,
+				F5DA3E5C255D7585007F3AA6 /* EncodableExtension.swift */,
+				F51D3FC4255D3BB30083E6A4 /* Core */,
 				F51D3FA9255D36AB0083E6A4 /* API */,
 				F51D3F92255D32560083E6A4 /* Model */,
 				F51D3F8E255D2F350083E6A4 /* Scenes */,
@@ -184,7 +196,6 @@
 		F51D3F92255D32560083E6A4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F51D3F9B255D32690083E6A4 /* Entity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,7 +213,8 @@
 			children = (
 				F51D3FD6255D3CFA0083E6A4 /* Request */,
 				F51D3FB2255D37730083E6A4 /* Network */,
-				F51D3FD1255D3CBE0083E6A4 /* APIPlaceGateway.swift */,
+				F51D3FFB255D63690083E6A4 /* Gateway */,
+				F5DA3E64255D78DD007F3AA6 /* APIPlace.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -211,19 +223,22 @@
 			isa = PBXGroup;
 			children = (
 				F51D3FA4255D36970083E6A4 /* APIClient.swift */,
+				F51D4023255D6CA60083E6A4 /* Encoders.swift */,
 				F51D3FAD255D36C30083E6A4 /* APIResponse.swift */,
+				F51D3FFF255D65920083E6A4 /* APIRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		F51D3FC4255D3BB30083E6A4 /* Library */ = {
+		F51D3FC4255D3BB30083E6A4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				F51D3FB6255D377C0083E6A4 /* Result.swift */,
+				F51D3F9B255D32690083E6A4 /* Entity */,
 				F51D3FF1255D3F080083E6A4 /* UseCase */,
 				F51D3FCD255D3C850083E6A4 /* Gateway */,
 			);
-			path = Library;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		F51D3FCD255D3C850083E6A4 /* Gateway */ = {
@@ -248,6 +263,14 @@
 				F51D3FEC255D3F040083E6A4 /* DisplayPlaceList.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F51D3FFB255D63690083E6A4 /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				F51D3FD1255D3CBE0083E6A4 /* APIPlaceGateway.swift */,
+			);
+			path = Gateway;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,14 +403,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5DA3E65255D78DD007F3AA6 /* APIPlace.swift in Sources */,
 				F51D3F82255D2F270083E6A4 /* PlaceListViewController.swift in Sources */,
+				F51D4005255D67B50083E6A4 /* Constants.swift in Sources */,
 				F51D3FB7255D377C0083E6A4 /* Result.swift in Sources */,
 				F51D3FC6255D3C540083E6A4 /* PlaceGateway.swift in Sources */,
 				F51D3F80255D2F270083E6A4 /* PlaceListRouter.swift in Sources */,
 				F51D3F7E255D2F270083E6A4 /* PlaceListPresenter.swift in Sources */,
 				F51D3FD2255D3CBE0083E6A4 /* APIPlaceGateway.swift in Sources */,
 				F51D3F81255D2F270083E6A4 /* PlaceListModels.swift in Sources */,
+				F51D4024255D6CA70083E6A4 /* Encoders.swift in Sources */,
 				F51D3FE0255D3D530083E6A4 /* SearchPlaceRequest.swift in Sources */,
+				F5DA3E5D255D7585007F3AA6 /* EncodableExtension.swift in Sources */,
 				F51D3F44255D1A110083E6A4 /* ViewController.swift in Sources */,
 				F51D3FAE255D36C30083E6A4 /* APIResponse.swift in Sources */,
 				F51D3FA5255D36970083E6A4 /* APIClient.swift in Sources */,
@@ -396,6 +423,7 @@
 				F51D3F42255D1A110083E6A4 /* SceneDelegate.swift in Sources */,
 				F51D3FED255D3F040083E6A4 /* DisplayPlaceList.swift in Sources */,
 				F51D3F7F255D2F270083E6A4 /* PlaceListWorker.swift in Sources */,
+				F51D4000255D65920083E6A4 /* APIRequest.swift in Sources */,
 				F51D3F94255D32660083E6A4 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

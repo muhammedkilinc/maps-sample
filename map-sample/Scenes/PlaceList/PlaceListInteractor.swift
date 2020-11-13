@@ -32,9 +32,15 @@ class PlaceListInteractor: PlaceListBusinessLogic, PlaceListDataStore
   
   func fetchPlaces(request: PlaceList.PlaceModel.Request)
   {
-    worker?.doSomeWork()
-    
-//    let response = PlaceList.Something.Response()
-//    presenter?.presentSomething(response: response)
+    worker?.fetchPlaces(query: request.query, completion: { (result) in
+      print(result)
+      switch result {
+      case let .success(places):
+        self.presenter?.presentPlaces(response: PlaceList.PlaceModel.Response(places: places))
+      case let .failure(error):
+        // TODO: present Error Alert
+        break
+      }
+    })
   }
 }

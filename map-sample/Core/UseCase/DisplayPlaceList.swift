@@ -8,7 +8,18 @@
 import Foundation
 
 // However it might make sense for each layer do define it's own input parameters so it can be used independently of the other layers.
-struct SearchPlaceParameters {
+struct SearchPlaceParameters: Encodable {
+  let input: String
+  let inputType: String = "textquery"
+  let fields: String = "formatted_address,name,rating,opening_hours,geometry"
+  let key: String = "AIzaSyD1aj8-8R0efpLNLqMJBnseg_DHCsoo1Ow"
+  
+  enum CodingKeys: String, CodingKey {
+    case inputType = "inputtype"
+    case fields
+    case key
+    case input
+  }
 }
 
 

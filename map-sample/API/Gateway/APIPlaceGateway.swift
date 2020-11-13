@@ -22,10 +22,10 @@ class ApiPlacesGatewayImplementation: ApiPlacesGateway {
   
   func fetchPlaces(parameters: SearchPlaceParameters, completionHandler: @escaping (Result<[Place]>) -> Void) {
     let searchPlaceRequest = SearchPlaceRequest(parameters: parameters)
-    apiClient.execute(request: searchPlaceRequest) { (result: Result<ApiResponse<[Place]>>) in
+    apiClient.execute(request: searchPlaceRequest) { (result: Result<ApiResponse<APIPlaceCandidates>>) in
       switch result {
       case let .success(response):
-        let places = response.entity
+        let places = response.entity.candidates
         completionHandler(.success(places))
       case let .failure(error):
         completionHandler(.failure(error))

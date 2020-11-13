@@ -8,16 +8,23 @@
 import Foundation
 
 struct SearchPlaceRequest: ApiRequest {
+  
   let parameters: SearchPlaceParameters
   
-  var urlRequest: URLRequest {
-    let url: URL! = URL(string: "")
-    var request = URLRequest(url: url)
-    
-    request.httpMethod = "GET"
-    //    request.httpBody = parameters.toJsonData()
-    
-    return request
+  var param: Parameters? {
+    return try? parameters.toDictionary()
+  }
+  
+  var httpMethod: HTTPMethod {
+      get { return .get }
+  }
+  
+  var endpoint: String {
+      get { return Constants.APIEndPoint.Place }
+  }
+  
+  var parameterEncoding: ParameterEncoding {
+    get { return .urlEncoding }
   }
   
 }

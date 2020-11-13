@@ -20,12 +20,8 @@ class PlaceListWorker
     self.displayPlacesUseCase = displayPlacesUseCase
   }
   
-  func doSomeWork()
-  {
-  }
-  
   func fetchPlaces(query: String, completion: @escaping DisplayPlacesUseCaseCompletionHandler) {
-    displayPlacesUseCase.displayPlaces(parameters: SearchPlaceParameters(), completionHandler: completion)
+    displayPlacesUseCase.displayPlaces(parameters: SearchPlaceParameters(input: query), completionHandler: completion)
   }
   
 }

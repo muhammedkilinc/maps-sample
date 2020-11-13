@@ -20,12 +20,17 @@ enum PlaceList
   {
     struct Request
     {
+      let query: String
     }
+    
     struct Response
     {
+      let places: [Place]
     }
+    
     struct ViewModel
     {
+      let places: [Place]
     }
   }
 }
