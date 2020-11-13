@@ -8,12 +8,12 @@
 import Foundation
 
 struct Place: Codable {
-  let adress: String?
+  let address: String?
   let name: String?
-  let rating: Int?
+  let rating: Double?
   
   enum CodingKeys: String, CodingKey {
-    case adress = "formatted_address"
+    case address = "formatted_address"
     case name
     case rating
   }

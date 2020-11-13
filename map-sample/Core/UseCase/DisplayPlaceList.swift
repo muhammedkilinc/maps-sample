@@ -41,7 +41,9 @@ class DisplayPlacesListUseCaseImplementation: DisplayPlacesUseCase {
   func displayPlaces(parameters: SearchPlaceParameters, completionHandler: @escaping (Result<[Place]>) -> Void) {
     self.placesGateway.fetchPlaces(parameters: parameters) { (result) in
       // Do any additional processing & after that call the completion handler
-      completionHandler(result)
+      DispatchQueue.main.async {
+        completionHandler(result)
+      }
     }
   }
 }

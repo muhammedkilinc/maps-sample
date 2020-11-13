@@ -17,10 +17,11 @@ protocol PlaceListDisplayLogic: class
   func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
 }
 
-class PlaceListViewController: UIViewController, PlaceListDisplayLogic
+class PlaceListViewController: UIViewController, PlaceListDisplayLogic, BaseTableViewController
 {
   var interactor: PlaceListBusinessLogic?
   var router: (NSObjectProtocol & PlaceListRoutingLogic & PlaceListDataPassing)?
+  var dataSource: TableViewDataSource<Place>!
 
   @IBOutlet weak var tableView: UITableView!
   
@@ -71,12 +72,21 @@ class PlaceListViewController: UIViewController, PlaceListDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    configureTableView()
     doSomething()
   }
   
-  // MARK: Do something
+  private func configureTableView() {
+    dataSource = PlaceListDataSource()
+
+    tableView.register(type: PlaceListTableCell.self)
+    tableView.dataSource = dataSource
+//    tableView.delegate = delegate
+    tableView.tableFooterView = UIView()
+    tableView.separatorStyle = .none
+  }
   
-  //@IBOutlet weak var nameTextField: UITextField!
+  // MARK: Do something
   
   func doSomething()
   {
@@ -86,7 +96,6 @@ class PlaceListViewController: UIViewController, PlaceListDisplayLogic
   
   func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
   {
-    print(viewModel.places)
-    //nameTextField.text = viewModel.name
+    show(items: viewModel.places)
   }
 }
