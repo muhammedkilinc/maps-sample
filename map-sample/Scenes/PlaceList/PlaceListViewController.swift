@@ -24,7 +24,8 @@ class PlaceListViewController: UIViewController, PlaceListDisplayLogic, BaseTabl
   var dataSource: TableViewDataSource<Place>!
 
   @IBOutlet weak var tableView: UITableView!
-  
+  @IBOutlet weak var searchBar: UISearchBar!
+
   // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -72,8 +73,9 @@ class PlaceListViewController: UIViewController, PlaceListDisplayLogic, BaseTabl
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    
     configureTableView()
-    doSomething()
+    setupUI()
   }
   
   private func configureTableView() {
@@ -81,21 +83,55 @@ class PlaceListViewController: UIViewController, PlaceListDisplayLogic, BaseTabl
 
     tableView.register(type: PlaceListTableCell.self)
     tableView.dataSource = dataSource
-//    tableView.delegate = delegate
+    tableView.delegate = delegate
     tableView.tableFooterView = UIView()
     tableView.separatorStyle = .none
   }
   
-  // MARK: Do something
+  private func setupUI() {
+    searchBar.delegate = self
+  }
   
-  func doSomething()
+  // MARK: Search Places
+  
+  func searchPlaces(text: String)
   {
-    let request = PlaceList.PlaceModel.Request(query: "Coffee")
+    let request = PlaceList.PlaceModel.Request(query: text)
     interactor?.fetchPlaces(request: request)
   }
   
   func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
   {
     show(items: viewModel.places)
+  }
+}
+
+extension PlaceListViewController: UISearchBarDelegate {
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    self.searchBar.showsCancelButton = true
+  }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.showsCancelButton = false
+    searchBar.text = nil
+    searchBar.resignFirstResponder()
+  }
+
+  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    if let text = searchBar.text {
+      searchPlaces(text: text)
+    } else {
+      
+    }
+  }
+}
+
+extension PlaceListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
   }
 }
