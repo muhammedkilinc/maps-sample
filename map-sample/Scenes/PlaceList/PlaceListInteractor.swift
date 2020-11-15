@@ -14,29 +14,30 @@ import UIKit
 
 protocol PlaceListBusinessLogic
 {
-  func fetchPlaces(request: PlaceList.PlaceModel.Request)
+  func fetchPlaces(request: PlaceList.FetchPlaces.Request)
 }
 
 protocol PlaceListDataStore
 {
-  //var name: String { get set }
+  var placeList: [Place] { get set }
 }
 
 class PlaceListInteractor: PlaceListBusinessLogic, PlaceListDataStore
 {
   var presenter: PlaceListPresentationLogic?
   var worker: PlaceListWorker?
-  //var name: String = ""
+  var placeList: [Place] = []
   
   // MARK: Do something
   
-  func fetchPlaces(request: PlaceList.PlaceModel.Request)
+  func fetchPlaces(request: PlaceList.FetchPlaces.Request)
   {
     worker?.fetchPlaces(query: request.query, completion: { (result) in
       print(result)
       switch result {
       case let .success(places):
-        self.presenter?.presentPlaces(response: PlaceList.PlaceModel.Response(places: places))
+        self.placeList = places
+        self.presenter?.presentPlaces(response: PlaceList.FetchPlaces.Response(places: places))
       case let .failure(error):
         // TODO: present Error Alert
         break

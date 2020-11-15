@@ -14,7 +14,7 @@ import UIKit
 
 @objc protocol PlaceListRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToShowOrder(indexPath: IndexPath)
 }
 
 protocol PlaceListDataPassing
@@ -29,32 +29,26 @@ class PlaceListRouter: NSObject, PlaceListRoutingLogic, PlaceListDataPassing
   
   // MARK: Routing
   
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+  func routeToShowOrder(indexPath: IndexPath)
+  {
+    let destinationVC = viewController?.storyboard?.instantiateViewController(withIdentifier: "PlaceDetailViewController") as! PlaceDetailViewController
+    var destinationDS = destinationVC.router!.dataStore!
+    passDataToShowOrder(source: dataStore!, destination: &destinationDS, indexPath: indexPath)
+    navigateToShowOrder(source: viewController!, destination: destinationVC)
+  }
 
   // MARK: Navigation
+
+  func navigateToShowOrder(source: PlaceListViewController, destination: PlaceDetailViewController)
+  {
+    source.show(destination, sender: nil)
+  }
   
-  //func navigateToSomewhere(source: PlaceListViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: PlaceListDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+  func passDataToShowOrder(source: PlaceListDataStore, destination: inout PlaceDetailDataStore, indexPath: IndexPath)
+  {
+    destination.place = source.placeList[indexPath.row]
+  }
 }

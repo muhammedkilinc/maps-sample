@@ -41,6 +41,12 @@
 		F5DA3E8C255E5CD9007F3AA6 /* PlaceListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5DA3E8A255E5CD9007F3AA6 /* PlaceListTableCell.xib */; };
 		F5DA3E95255E61B7007F3AA6 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA3E94255E61B7007F3AA6 /* UITableViewExtension.swift */; };
 		F5DA3EB1255E6846007F3AA6 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA3EB0255E6846007F3AA6 /* BaseTableViewController.swift */; };
+		F5DA3ECE2560274F007F3AA6 /* PlaceDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA3EC82560274F007F3AA6 /* PlaceDetailPresenter.swift */; };
+		F5DA3ECF2560274F007F3AA6 /* PlaceDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA3EC92560274F007F3AA6 /* PlaceDetailWorker.swift */; };
+		F5DA3ED02560274F007F3AA6 /* PlaceDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA3ECA2560274F007F3AA6 /* PlaceDetailRouter.swift */; };
+		F5DA3ED12560274F007F3AA6 /* PlaceDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA3ECB2560274F007F3AA6 /* PlaceDetailModels.swift */; };
+		F5DA3ED22560274F007F3AA6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA3ECC2560274F007F3AA6 /* PlaceDetailViewController.swift */; };
+		F5DA3ED32560274F007F3AA6 /* PlaceDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DA3ECD2560274F007F3AA6 /* PlaceDetailInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +107,12 @@
 		F5DA3E8A255E5CD9007F3AA6 /* PlaceListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceListTableCell.xib; sourceTree = "<group>"; };
 		F5DA3E94255E61B7007F3AA6 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		F5DA3EB0255E6846007F3AA6 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		F5DA3EC82560274F007F3AA6 /* PlaceDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailPresenter.swift; sourceTree = "<group>"; };
+		F5DA3EC92560274F007F3AA6 /* PlaceDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailWorker.swift; sourceTree = "<group>"; };
+		F5DA3ECA2560274F007F3AA6 /* PlaceDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailRouter.swift; sourceTree = "<group>"; };
+		F5DA3ECB2560274F007F3AA6 /* PlaceDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailModels.swift; sourceTree = "<group>"; };
+		F5DA3ECC2560274F007F3AA6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		F5DA3ECD2560274F007F3AA6 /* PlaceDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				F51D3F87255D2F2D0083E6A4 /* PlaceList */,
+				F5DA3ED725602753007F3AA6 /* PlaceDetail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -366,6 +379,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F5DA3ED725602753007F3AA6 /* PlaceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F5DA3EC82560274F007F3AA6 /* PlaceDetailPresenter.swift */,
+				F5DA3EC92560274F007F3AA6 /* PlaceDetailWorker.swift */,
+				F5DA3ECA2560274F007F3AA6 /* PlaceDetailRouter.swift */,
+				F5DA3ECB2560274F007F3AA6 /* PlaceDetailModels.swift */,
+				F5DA3ECC2560274F007F3AA6 /* PlaceDetailViewController.swift */,
+				F5DA3ECD2560274F007F3AA6 /* PlaceDetailInteractor.swift */,
+			);
+			path = PlaceDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -502,14 +528,19 @@
 				F51D4005255D67B50083E6A4 /* Constants.swift in Sources */,
 				F51D3FB7255D377C0083E6A4 /* Result.swift in Sources */,
 				F5DA3E8B255E5CD9007F3AA6 /* PlaceListTableCell.swift in Sources */,
+				F5DA3ED32560274F007F3AA6 /* PlaceDetailInteractor.swift in Sources */,
 				F51D3FC6255D3C540083E6A4 /* PlaceGateway.swift in Sources */,
 				F51D3F80255D2F270083E6A4 /* PlaceListRouter.swift in Sources */,
 				F51D3F7E255D2F270083E6A4 /* PlaceListPresenter.swift in Sources */,
 				F51D3FD2255D3CBE0083E6A4 /* APIPlaceGateway.swift in Sources */,
 				F51D3F81255D2F270083E6A4 /* PlaceListModels.swift in Sources */,
 				F5DA3EB1255E6846007F3AA6 /* BaseTableViewController.swift in Sources */,
+				F5DA3ED02560274F007F3AA6 /* PlaceDetailRouter.swift in Sources */,
 				F5DA3E74255E5BF2007F3AA6 /* ViewCell.swift in Sources */,
+				F5DA3ECE2560274F007F3AA6 /* PlaceDetailPresenter.swift in Sources */,
+				F5DA3ED12560274F007F3AA6 /* PlaceDetailModels.swift in Sources */,
 				F51D4024255D6CA70083E6A4 /* Encoders.swift in Sources */,
+				F5DA3ECF2560274F007F3AA6 /* PlaceDetailWorker.swift in Sources */,
 				F51D3FE0255D3D530083E6A4 /* SearchPlaceRequest.swift in Sources */,
 				F5DA3E5D255D7585007F3AA6 /* EncodableExtension.swift in Sources */,
 				F5DA3E7D255E5C6A007F3AA6 /* PlaceListDataSource.swift in Sources */,
@@ -520,6 +551,7 @@
 				F51D3F42255D1A110083E6A4 /* SceneDelegate.swift in Sources */,
 				F5DA3E6F255E5B9A007F3AA6 /* TableViewDataSource.swift in Sources */,
 				F51D3FED255D3F040083E6A4 /* DisplayPlaceList.swift in Sources */,
+				F5DA3ED22560274F007F3AA6 /* PlaceDetailViewController.swift in Sources */,
 				F51D3F7F255D2F270083E6A4 /* PlaceListWorker.swift in Sources */,
 				F5DA3E6A255E5B79007F3AA6 /* ViewDataSource.swift in Sources */,
 				F51D4000255D65920083E6A4 /* APIRequest.swift in Sources */,

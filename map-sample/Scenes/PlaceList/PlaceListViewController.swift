@@ -14,7 +14,7 @@ import UIKit
 
 protocol PlaceListDisplayLogic: class
 {
-  func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
+  func displayPlaces(viewModel: PlaceList.FetchPlaces.ViewModel)
 }
 
 class PlaceListViewController: UIViewController, PlaceListDisplayLogic, BaseTableViewController
@@ -66,6 +66,12 @@ class PlaceListViewController: UIViewController, PlaceListDisplayLogic, BaseTabl
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
   {
+    if let scene = segue.identifier {
+      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+      if let router = router, router.responds(to: selector) {
+        router.perform(selector, with: segue)
+      }
+    }
   }
   
   // MARK: View lifecycle
@@ -83,7 +89,7 @@ class PlaceListViewController: UIViewController, PlaceListDisplayLogic, BaseTabl
 
     tableView.register(type: PlaceListTableCell.self)
     tableView.dataSource = dataSource
-    tableView.delegate = delegate
+    tableView.delegate = self
     tableView.tableFooterView = UIView()
     tableView.separatorStyle = .none
   }
@@ -96,11 +102,11 @@ class PlaceListViewController: UIViewController, PlaceListDisplayLogic, BaseTabl
   
   func searchPlaces(text: String)
   {
-    let request = PlaceList.PlaceModel.Request(query: text)
+    let request = PlaceList.FetchPlaces.Request(query: text)
     interactor?.fetchPlaces(request: request)
   }
   
-  func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
+  func displayPlaces(viewModel: PlaceList.FetchPlaces.ViewModel)
   {
     show(items: viewModel.places)
   }
@@ -132,6 +138,6 @@ extension PlaceListViewController: UISearchBarDelegate {
 
 extension PlaceListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+    router?.routeToShowOrder(indexPath: indexPath)
   }
 }
