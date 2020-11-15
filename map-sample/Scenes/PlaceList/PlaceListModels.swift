@@ -16,16 +16,21 @@ enum PlaceList
 {
   // MARK: Use cases
   
-  enum Something
+  enum PlaceModel
   {
     struct Request
     {
+      let query: String
     }
+    
     struct Response
     {
+      let places: [Place]
     }
+    
     struct ViewModel
     {
+      let places: [Place]
     }
   }
 }

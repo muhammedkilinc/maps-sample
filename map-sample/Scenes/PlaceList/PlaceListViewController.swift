@@ -14,13 +14,17 @@ import UIKit
 
 protocol PlaceListDisplayLogic: class
 {
-  func displaySomething(viewModel: PlaceList.Something.ViewModel)
+  func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
 }
 
-class PlaceListViewController: UITableViewController, PlaceListDisplayLogic
+class PlaceListViewController: UIViewController, PlaceListDisplayLogic, BaseTableViewController
 {
   var interactor: PlaceListBusinessLogic?
   var router: (NSObjectProtocol & PlaceListRoutingLogic & PlaceListDataPassing)?
+  var dataSource: TableViewDataSource<Place>!
+
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var searchBar: UISearchBar!
 
   // MARK: Object lifecycle
   
@@ -41,12 +45,18 @@ class PlaceListViewController: UITableViewController, PlaceListDisplayLogic
   private func setup()
   {
     let viewController = self
+
+    let client = ApiClientImplementation(urlSession: URLSession(configuration: URLSessionConfiguration.default))
+    let gateway = ApiPlacesGatewayImplementation(apiClient: client)
+    let placesUseCase = DisplayPlacesListUseCaseImplementation(placesGateway: gateway)
+
     let interactor = PlaceListInteractor()
     let presenter = PlaceListPresenter()
     let router = PlaceListRouter()
     viewController.interactor = interactor
     viewController.router = router
     interactor.presenter = presenter
+    interactor.worker = PlaceListWorker(displayPlacesUseCase: placesUseCase)
     presenter.viewController = viewController
     router.viewController = viewController
     router.dataStore = interactor
@@ -56,12 +66,6 @@ class PlaceListViewController: UITableViewController, PlaceListDisplayLogic
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
   {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
-    }
   }
   
   // MARK: View lifecycle
@@ -69,21 +73,65 @@ class PlaceListViewController: UITableViewController, PlaceListDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    doSomething()
+    
+    configureTableView()
+    setupUI()
   }
   
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = PlaceList.Something.Request()
-    interactor?.doSomething(request: request)
+  private func configureTableView() {
+    dataSource = PlaceListDataSource()
+
+    tableView.register(type: PlaceListTableCell.self)
+    tableView.dataSource = dataSource
+    tableView.delegate = delegate
+    tableView.tableFooterView = UIView()
+    tableView.separatorStyle = .none
   }
   
-  func displaySomething(viewModel: PlaceList.Something.ViewModel)
+  private func setupUI() {
+    searchBar.delegate = self
+  }
+  
+  // MARK: Search Places
+  
+  func searchPlaces(text: String)
   {
-    //nameTextField.text = viewModel.name
+    let request = PlaceList.PlaceModel.Request(query: text)
+    interactor?.fetchPlaces(request: request)
+  }
+  
+  func displayPlaces(viewModel: PlaceList.PlaceModel.ViewModel)
+  {
+    show(items: viewModel.places)
+  }
+}
+
+extension PlaceListViewController: UISearchBarDelegate {
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    self.searchBar.showsCancelButton = true
+  }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.showsCancelButton = false
+    searchBar.text = nil
+    searchBar.resignFirstResponder()
+  }
+
+  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    if let text = searchBar.text {
+      searchPlaces(text: text)
+    } else {
+      
+    }
+  }
+}
+
+extension PlaceListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
   }
 }

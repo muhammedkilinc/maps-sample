@@ -14,7 +14,14 @@ import UIKit
 
 class PlaceListWorker
 {
-  func doSomeWork()
-  {
+  fileprivate let displayPlacesUseCase: DisplayPlacesUseCase
+  
+  init(displayPlacesUseCase: DisplayPlacesUseCase) {
+    self.displayPlacesUseCase = displayPlacesUseCase
   }
+  
+  func fetchPlaces(query: String, completion: @escaping DisplayPlacesUseCaseCompletionHandler) {
+    displayPlacesUseCase.displayPlaces(parameters: SearchPlaceParameters(input: query), completionHandler: completion)
+  }
+  
 }

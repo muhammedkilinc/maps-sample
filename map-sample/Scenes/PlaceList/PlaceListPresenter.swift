@@ -14,7 +14,7 @@ import UIKit
 
 protocol PlaceListPresentationLogic
 {
-  func presentSomething(response: PlaceList.Something.Response)
+  func presentPlaces(response: PlaceList.PlaceModel.Response)
 }
 
 class PlaceListPresenter: PlaceListPresentationLogic
@@ -23,9 +23,9 @@ class PlaceListPresenter: PlaceListPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: PlaceList.Something.Response)
+  func presentPlaces(response: PlaceList.PlaceModel.Response)
   {
-    let viewModel = PlaceList.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+    let viewModel = PlaceList.PlaceModel.ViewModel(places: response.places)
+    viewController?.displayPlaces(viewModel: viewModel)
   }
 }
