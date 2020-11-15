@@ -71,14 +71,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X4L-zq-SHh">
-                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="X4L-zq-SHh" secondAttribute="height" multiplier="1:1" id="9j6-V2-aHN"/>
-                                </constraints>
-                            </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-ug-GFD">
-                                <rect key="frame" x="32" y="490" width="350" height="93.5"/>
+                                <rect key="frame" x="32" y="458" width="350" height="93.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeV-Hd-VcC">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="20.5"/>
@@ -100,21 +94,29 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxv-fl-WQ4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qxv-fl-WQ4" secondAttribute="height" multiplier="1:1" id="z3j-pk-WgQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aF4-gm-euz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Sdh-ug-GFD" firstAttribute="leading" secondItem="aF4-gm-euz" secondAttribute="leading" constant="32" id="2zt-3V-vPd"/>
-                            <constraint firstItem="X4L-zq-SHh" firstAttribute="top" secondItem="aF4-gm-euz" secondAttribute="top" id="9Tb-GV-26v"/>
-                            <constraint firstItem="Sdh-ug-GFD" firstAttribute="top" secondItem="X4L-zq-SHh" secondAttribute="bottom" constant="32" id="Wd7-Ey-goT"/>
-                            <constraint firstItem="X4L-zq-SHh" firstAttribute="leading" secondItem="aF4-gm-euz" secondAttribute="leading" id="Z3m-Tg-a8R"/>
+                            <constraint firstItem="aF4-gm-euz" firstAttribute="trailing" secondItem="Qxv-fl-WQ4" secondAttribute="trailing" id="8qd-mt-fxq"/>
+                            <constraint firstItem="Qxv-fl-WQ4" firstAttribute="top" secondItem="aF4-gm-euz" secondAttribute="top" id="Iy2-w4-MWV"/>
+                            <constraint firstItem="Qxv-fl-WQ4" firstAttribute="leading" secondItem="aF4-gm-euz" secondAttribute="leading" id="ity-8w-glP"/>
+                            <constraint firstItem="Sdh-ug-GFD" firstAttribute="top" secondItem="Qxv-fl-WQ4" secondAttribute="bottom" id="kAk-CU-h4I"/>
                             <constraint firstItem="aF4-gm-euz" firstAttribute="trailing" secondItem="Sdh-ug-GFD" secondAttribute="trailing" constant="32" id="lpq-pr-Hdz"/>
-                            <constraint firstItem="aF4-gm-euz" firstAttribute="trailing" secondItem="X4L-zq-SHh" secondAttribute="trailing" id="nfV-mq-Pol"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NOB-ra-Cfv"/>
                     <connections>
                         <outlet property="addressLabel" destination="67x-Gy-mdO" id="5f2-hM-zGq"/>
+                        <outlet property="mapsContentView" destination="Qxv-fl-WQ4" id="hnS-lo-a8v"/>
                         <outlet property="nameLabel" destination="aeV-Hd-VcC" id="jJ4-WE-jc9"/>
                     </connections>
                 </viewController>

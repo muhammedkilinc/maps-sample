@@ -82,6 +82,8 @@ class PlaceListViewController: UIViewController, PlaceListDisplayLogic, BaseTabl
     
     configureTableView()
     setupUI()
+    
+    title = Constants.App.ScreenTitle.placeList
   }
   
   private func configureTableView() {

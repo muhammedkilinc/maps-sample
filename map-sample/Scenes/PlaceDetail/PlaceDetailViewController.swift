@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 protocol PlaceDetailDisplayLogic: class
 {
@@ -24,7 +25,10 @@ class PlaceDetailViewController: UIViewController, PlaceDetailDisplayLogic
 
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
+  @IBOutlet weak var mapsContentView: UIView!
 
+  var mapView: GMSMapView!
+  
   // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -55,6 +59,14 @@ class PlaceDetailViewController: UIViewController, PlaceDetailDisplayLogic
     router.dataStore = interactor
   }
   
+  func setupGoogleMap() {
+    let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+    
+    mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 0, width: mapsContentView.frame.size.width, height: mapsContentView.frame.size.height), camera: camera)
+    self.mapsContentView.addSubview(mapView)
+    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+  }
+  
   // MARK: Routing
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -72,12 +84,12 @@ class PlaceDetailViewController: UIViewController, PlaceDetailDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    
+    setupGoogleMap()
     getPlaceDetail()
   }
   
   // MARK: Get Place Detail
-  
-  //@IBOutlet weak var nameTextField: UITextField!
   
   func getPlaceDetail()
   {
@@ -90,5 +102,15 @@ class PlaceDetailViewController: UIViewController, PlaceDetailDisplayLogic
     let displayedPlace = viewModel.displayedPlace
     nameLabel.text = displayedPlace.name
     addressLabel.text = displayedPlace.address
+    
+    let camera = GMSCameraPosition.camera(withLatitude: displayedPlace.coordinate.latitude, longitude: displayedPlace.coordinate.longitude, zoom: 15.0)
+    mapView.camera = camera
+    
+    let marker = GMSMarker()
+    marker.position = CLLocationCoordinate2D(latitude: displayedPlace.coordinate.latitude, longitude: displayedPlace.coordinate.longitude)
+    marker.title = displayedPlace.name
+//    marker.snippet = "Test Snippet"
+    marker.map = mapView
+    
   }
 }

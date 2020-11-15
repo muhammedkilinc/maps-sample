@@ -30,7 +30,15 @@ enum PlaceDetail
       struct DisplayedPlace
       {
         var name: String
-        var address: String        
+        var address: String
+
+        struct Coordinate {
+          var latitude: Double
+          var longitude: Double
+        }
+        
+        var coordinate: Coordinate
+
       }
       var displayedPlace: DisplayedPlace
     }

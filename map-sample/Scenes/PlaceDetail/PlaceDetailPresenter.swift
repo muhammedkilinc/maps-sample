@@ -26,7 +26,12 @@ class PlaceDetailPresenter: PlaceDetailPresentationLogic
   func presentPlaceDetail(response: PlaceDetail.GetPlace.Response)
   {
     let place = response.place
-    let displayedPlace = PlaceDetail.GetPlace.ViewModel.DisplayedPlace(name: place.name ?? "", address: place.address ?? "")
+    let location = place.geometry?.location
+    
+    let displayedCoordinate = PlaceDetail.GetPlace.ViewModel.DisplayedPlace.Coordinate(latitude: location?.latitude ?? 0.0, longitude: location?.longitude ?? 0.0)
+    
+    let displayedPlace = PlaceDetail.GetPlace.ViewModel.DisplayedPlace(name: place.name ?? "", address: place.address ?? "", coordinate: displayedCoordinate)
+    
     let viewModel = PlaceDetail.GetPlace.ViewModel(displayedPlace: displayedPlace)
     viewController?.displayMapInfo(viewModel: viewModel)
   }
