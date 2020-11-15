@@ -16,7 +16,7 @@ enum PlaceList
 {
   // MARK: Use cases
   
-  enum PlaceModel
+  enum FetchPlaces
   {
     struct Request
     {

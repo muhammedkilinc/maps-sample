@@ -24,6 +24,7 @@ protocol ApiRequest {
   var param: Parameters? { get }
   var addionalHeader: HeaderParameter? {get}
   var parameterEncoding: ParameterEncoding { get }
+  var additionalParam: Parameters? { get }
 }
 
 extension ApiRequest {
@@ -45,6 +46,10 @@ extension ApiRequest {
   // Param
   var param: Parameters? {
     get { return nil }
+  }
+  
+  var additionalParam: Parameters? {
+    get { return [Constants.App.Request.GooglePlacesKey: Constants.App.APIKey] }
   }
   
   
@@ -77,9 +82,11 @@ extension ApiRequest {
     // Init
     var urlRequest = URLRequest(url: self.url)
     urlRequest.httpMethod = self.httpMethod.rawValue
-    
+    var parameters = param
+    parameters?.merge(additionalParam ?? [:]) { (current, _) in current }
+
     // Encode param
-    try? self.parameterEncoding.encode(urlRequest: &urlRequest, params: param)
+    try? self.parameterEncoding.encode(urlRequest: &urlRequest, params: parameters)
 
     // Add addional Header if need
     if let additinalHeaders = self.addionalHeader {

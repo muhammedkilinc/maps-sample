@@ -63,6 +63,67 @@
             </objects>
             <point key="canvasLocation" x="-168.11594202898553" y="-123.21428571428571"/>
         </scene>
+        <!--Place Detail View Controller-->
+        <scene sceneID="hiW-1t-drW">
+            <objects>
+                <viewController storyboardIdentifier="PlaceDetailViewController" id="CMx-Nz-q1p" customClass="PlaceDetailViewController" customModule="map_sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hda-4I-8kv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-ug-GFD">
+                                <rect key="frame" x="32" y="458" width="350" height="93.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeV-Hd-VcC">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67x-Gy-mdO">
+                                        <rect key="frame" x="0.0" y="36.5" width="350" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3k-Qv-uM6">
+                                        <rect key="frame" x="0.0" y="73" width="350" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxv-fl-WQ4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qxv-fl-WQ4" secondAttribute="height" multiplier="1:1" id="z3j-pk-WgQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aF4-gm-euz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sdh-ug-GFD" firstAttribute="leading" secondItem="aF4-gm-euz" secondAttribute="leading" constant="32" id="2zt-3V-vPd"/>
+                            <constraint firstItem="aF4-gm-euz" firstAttribute="trailing" secondItem="Qxv-fl-WQ4" secondAttribute="trailing" id="8qd-mt-fxq"/>
+                            <constraint firstItem="Qxv-fl-WQ4" firstAttribute="top" secondItem="aF4-gm-euz" secondAttribute="top" id="Iy2-w4-MWV"/>
+                            <constraint firstItem="Qxv-fl-WQ4" firstAttribute="leading" secondItem="aF4-gm-euz" secondAttribute="leading" id="ity-8w-glP"/>
+                            <constraint firstItem="Sdh-ug-GFD" firstAttribute="top" secondItem="Qxv-fl-WQ4" secondAttribute="bottom" id="kAk-CU-h4I"/>
+                            <constraint firstItem="aF4-gm-euz" firstAttribute="trailing" secondItem="Sdh-ug-GFD" secondAttribute="trailing" constant="32" id="lpq-pr-Hdz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NOB-ra-Cfv"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="67x-Gy-mdO" id="5f2-hM-zGq"/>
+                        <outlet property="mapsContentView" destination="Qxv-fl-WQ4" id="hnS-lo-a8v"/>
+                        <outlet property="nameLabel" destination="aeV-Hd-VcC" id="jJ4-WE-jc9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSF-Ce-flb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="539" y="-127"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

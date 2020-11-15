@@ -11,13 +11,11 @@ import Foundation
 struct SearchPlaceParameters: Encodable {
   let input: String
   let inputType: String = "textquery"
-  let fields: String = "formatted_address,name,rating,opening_hours,geometry"
-  let key: String = "AIzaSyD1aj8-8R0efpLNLqMJBnseg_DHCsoo1Ow"
+  let fields: String = "formatted_address,name,rating,opening_hours,geometry,type"
   
   enum CodingKeys: String, CodingKey {
     case inputType = "inputtype"
     case fields
-    case key
     case input
   }
 }
