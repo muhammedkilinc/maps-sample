@@ -280,10 +280,11 @@
 		F51D3FA9255D36AB0083E6A4 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				F5DA3E64255D78DD007F3AA6 /* APIPlace.swift */,
 				F51D3FD6255D3CFA0083E6A4 /* Request */,
 				F51D3FB2255D37730083E6A4 /* Network */,
 				F51D3FFB255D63690083E6A4 /* Gateway */,
-				F5DA3E64255D78DD007F3AA6 /* APIPlace.swift */,
+				F51D3FB6255D377C0083E6A4 /* Result.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -302,7 +303,6 @@
 		F51D3FC4255D3BB30083E6A4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F51D3FB6255D377C0083E6A4 /* Result.swift */,
 				F51D3F9B255D32690083E6A4 /* Entity */,
 				F51D3FF1255D3F080083E6A4 /* UseCase */,
 				F51D3FCD255D3C850083E6A4 /* Gateway */,
